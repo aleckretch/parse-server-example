@@ -27,7 +27,10 @@ var api = new ParseServer({
       domain: 'mg.datesonvenus.com',
       apiKey: 'key-070a23689abf8a03bbacfecad67d8712',
       verificationSubject: 'Confirm your email for Venus',
-      verificationBody: 'Hi,\n\nPlease confirm your email for Venus by clicking the following link:\n\n%link%\n\nBest of luck!\n\nThe Venus Team',
+      verificationBody: 'Hi,\n\nPlease confirm your email for Venus by clicking the following link:\n\n%link%\n\nThanks,\n\nThe Venus Team',
+      passwordResetSubject: 'Change your password for Venus',
+      // Password reset email body
+      passwordResetBody: 'Hi,\n\nPlease change your password for Venus by clicking the following link:\n\n%link%\n\nThanks,\n\nThe Venus Team',
     }
   },
   liveQuery: {
