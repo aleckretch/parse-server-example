@@ -21,24 +21,11 @@ var api = new ParseServer({
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   emailAdapter: {
-    module: 'parse-server-mandrill-adapter',
+    module: 'parse-server-simple-mailgun-adapter',
     options: {
-      // API key from Mandrill account
-      apiKey: 'bece0af6676d048a734af16450f88363-us15',
-      // From email address
-      fromEmail: 'no-reply@datesonvenus.com',
-      // Display name
-      displayName: 'Venus Dating App',
-      // Reply-to email address
-      replyTo: 'no-reply@datesonvenus.com',
-      // Verification email subject
-      verificationSubject: 'Please verify your e-mail for *|appname|*',
-      // Verification email body. This will be ignored when verificationTemplateName is used.
-      verificationBody: 'Hi *|username|*,\n\nYou are being asked to confirm the e-mail address *|email|* with *|appname|*\n\nClick here to confirm it:\n*|link|*',
-      // Password reset email subject
-      passwordResetSubject: 'Password Reset Request for *|appname|*',
-      // Password reset email body. This will be ignored when passwordResetTemplateName is used.
-      passwordResetBody: 'Hi *|username|*,\n\nYou requested a password reset for *|appname|*.\n\nClick here to reset it:\n*|link|*',
+      fromAddress: 'Do Not Reply <donotreply@datesonvenus.com>',
+      domain: 'datesonvenus.com',
+      apiKey: 'key-070a23689abf8a03bbacfecad67d8712',
     }
   },
   liveQuery: {
