@@ -20,7 +20,7 @@ var api = new ParseServer({
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
-  emailAdapter: SimpleSendGridAdapter({
+  emailAdapter: 'parse-server-sendgrid-adapter'({
     apiKey: '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',
     fromAddress: 'Venus Dating App <verifyemail@datesonvenus.com>',
   }),
