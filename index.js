@@ -21,11 +21,49 @@ var api = new ParseServer({
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   emailAdapter: {
-    module: 'parse-server-simple-mailgun-adapter',
+    module: 'parse-server-mandrill-adapter',
     options: {
-      fromAddress: 'Venus Dating App Email Verification <verifyemail@datesonvenus.com>',
-      domain: 'mg.datesonvenus.com',
-      apiKey: 'key-070a23689abf8a03bbacfecad67d8712',
+      // API key from Mandrill account
+      apiKey: 'bece0af6676d048a734af16450f88363-us15',
+      // From email address
+      fromEmail: 'no-reply@datesonvenus.com',
+      // Display name
+      displayName: 'Venus Dating App',
+      // Reply-to email address
+      replyTo: 'no-reply@datesonvenus.com',
+      // Verification email subject
+      verificationSubject: 'Please verify your e-mail for *|appname|*',
+      // Verification email body. This will be ignored when verificationTemplateName is used.
+      verificationBody: 'Hi *|username|*,\n\nYou are being asked to confirm the e-mail address *|email|* with *|appname|*\n\nClick here to confirm it:\n*|link|*',
+      // Password reset email subject
+      passwordResetSubject: 'Password Reset Request for *|appname|*',
+      // Password reset email body. This will be ignored when passwordResetTemplateName is used.
+      passwordResetBody: 'Hi *|username|*,\n\nYou requested a password reset for *|appname|*.\n\nClick here to reset it:\n*|link|*',
+
+      /****************************************
+       * If you are using Mandrill templates: *
+       ****************************************/
+
+      //
+      // If you want to use other custom User attributes in the emails
+      // (for example: firstName, lastName), add them to the list (username and email 
+      // are pre-loaded).
+      // The merge tag in the template must be equal to the attribute's name.
+      customUserAttributesMergeTags: ['firstname', 'lastname'],
+
+      //
+      // The name of your Mandrill template for the password reset email:
+      // If you add this attribute, then passwordResetBody will be ignored.
+      // IMPORTANT: Make sure the email has the *|link|* merge tag,
+      //            it will render the url to reset the password.
+      passwordResetTemplateName: 'password-reset-template-name',
+
+      //
+      // The name of your Mandrill template for the verification email:
+      // If you add this attribute, then verificationBody will be ignored.
+      // IMPORTANT: Make sure the email has the *|link|* merge tag,
+      //            it will render the url to verify the user.
+      verificationTemplateName: 'email-verification-template-name',
     }
   },
   liveQuery: {
