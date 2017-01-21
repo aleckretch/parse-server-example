@@ -12,7 +12,7 @@ if (!databaseUri) {
 }
 
 var api = new ParseServer({
-  verifyemail: true,
+  verifyUserEmails: true,
   appName: 'Venus Dating App',
   publicServerURL: 'http://s.datesonvenus.com/api',
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
