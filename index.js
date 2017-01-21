@@ -24,7 +24,7 @@ var api = new ParseServer({
     module: 'parse-server-simple-mailgun-adapter',
     options: {
       fromAddress: 'Venus Dating App Email Verification <verifyemail@datesonvenus.com>',
-      domain: 'mg.datesonvenus.com',
+      domain: 'unilistapp.com',
       apiKey: 'key-070a23689abf8a03bbacfecad67d8712',
     }
   },
