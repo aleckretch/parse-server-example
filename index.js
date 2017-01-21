@@ -14,16 +14,16 @@ if (!databaseUri) {
 var api = new ParseServer({
   verifyemail: true,
   appName: 'Venus Dating App',
-  publicServerURL: process.env.SERVER_URL,
+  publicServerURL: 'http://s.datesonvenus.com/api',
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   emailAdapter: {
-    module: 'parse-server-simple-mailgun-adapter',
+    module: 'parse-server-mailgun',
     options: {
-      fromAddress: 'verifyemail@datesonvenus.com',
+      fromAddress: 'Venus Dating App Email Verification <verifyemail@datesonvenus.com>',
       domain: 'mg.datesonvenus.com',
       apiKey: 'key-070a23689abf8a03bbacfecad67d8712',
     }
