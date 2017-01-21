@@ -24,7 +24,7 @@ var api = new ParseServer({
     module: 'parse-server-simple-mailgun-adapter',
     options: {
       fromAddress: 'Do Not Reply <donotreply@datesonvenus.com>',
-      domain: 'datesonvenus.com',
+      domain: 'mg.datesonvenus.com',
       apiKey: 'key-070a23689abf8a03bbacfecad67d8712',
     }
   },
