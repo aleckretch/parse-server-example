@@ -23,9 +23,11 @@ var api = new ParseServer({
   emailAdapter: {
     module: 'parse-server-simple-mailgun-adapter',
     options: {
-      fromAddress: 'Do Not Reply <donotreply@datesonvenus.com>',
+      fromAddress: 'Do Not Reply <donotreply@mg.datesonvenus.com>',
       domain: 'mg.datesonvenus.com',
       apiKey: 'key-070a23689abf8a03bbacfecad67d8712',
+      verificationSubject: 'Verify your email for Venus',
+      verificationBody: 'Hi %name%,\n\nPlease confirm your email for Venus:\n\nClick here to confirm it:\n%link%\n\nEnjoy falling in love! Sincerely,\n\nThe Venus Team',
     }
   },
   liveQuery: {
