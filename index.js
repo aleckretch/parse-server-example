@@ -23,7 +23,7 @@ var api = new ParseServer({
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   emailAdapter: SimpleSendGridAdapter({
     apiKey: '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',
-    fromAddress: 'Venus Dating App <verifyemail@datesonvenus.com>',
+    fromAddress: 'Venus Dating App <verifyemail@datesonvenus.com>'
   }),
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
