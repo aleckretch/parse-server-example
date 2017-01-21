@@ -20,6 +20,8 @@ var api = new ParseServer({
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   },
+  appName: "Venus Dating App",
+  publicServerURL: "http://datesonvenus.com/api,
   emailAdapter: new SimpleMailgunAdapter({
     apiKey: 'key-070a23689abf8a03bbacfecad67d8712',
     domain: 'http://mg.datesonvenus.com',
