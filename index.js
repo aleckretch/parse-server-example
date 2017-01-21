@@ -4,7 +4,6 @@
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
-var SimpleSendGridAdapter = require('parse-server-sendgrid-adapter');
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
@@ -21,10 +20,14 @@ var api = new ParseServer({
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
-  emailAdapter: SimpleSendGridAdapter({
-    apiKey: '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',
-    fromAddress: 'Venus Dating App <verifyemail@datesonvenus.com>',
-  }),
+  emailAdapter: {
+    module: 'parse-server-simple-mailgun-adapter',
+    options: {
+      fromAddress: 'Venus Dating App Email Verification <verifyemail@datesonvenus.com>',
+      domain: 'mg.datesonvenus.com',
+      apiKey: 'key-070a23689abf8a03bbacfecad67d8712',
+    }
+  },
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   }
